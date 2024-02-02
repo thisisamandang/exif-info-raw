@@ -5,14 +5,14 @@ export interface ImageData {
 }
 
 export interface ExifInfo {
-  Lens: string;
-  CaptureTime: string;
-  ISO: number;
-  Speed: string;
-  Aperture: string;
-  FileName: string;
-  ImageSize: string;
-  WhiteBalance: string;
-  Rating: number;
-  Camera: string;
+  Lens?: string;
+  CaptureTime?: string;
+  ISO?: number;
+  Speed?: string;
+  Aperture?: string;
+  FileName?: string;
+  ImageSize?: string;
+  WhiteBalance?: string;
+  Rating?: number;
+  Camera?: string;
 }
