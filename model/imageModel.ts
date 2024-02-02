@@ -15,9 +15,9 @@ const exifInfoSchema = new Schema<ExifInfo>({
 });
 
 const fileInfoSchema = new mongoose.Schema({
-  fileName: { type: String, required: true },
-  path: { type: String, required: true },
-  previewPath: { type: String, required: true },
+  fileName: { type: String },
+  path: { type: String },
+  previewPath: { type: String },
 });
 
 const combinedSchema = new mongoose.Schema({
@@ -25,6 +25,6 @@ const combinedSchema = new mongoose.Schema({
   fileInfo: { type: fileInfoSchema, required: true },
 });
 
-const imageModel = mongoose.model("Image", combinedSchema);
+const ImageModel = mongoose.model("Image", combinedSchema);
 
-export default imageModel;
+export default ImageModel;
