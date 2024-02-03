@@ -6,11 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // routes.ts
 const express_1 = __importDefault(require("express"));
 const exifController_1 = require("../controllers/exifController");
-const multer = require("multer");
-const upload = multer({ dest: "./assets" });
 const uploadController_1 = require("../controllers/uploadController");
+const uploadMulter_1 = require("../middleware/uploadMulter");
+const getImageController_1 = require("../controllers/getImageController");
 const router = express_1.default.Router();
 router.get("/", (req, res) => res.send("API Running"));
 router.get("/exifinfo", exifController_1.getImagesWithExifData);
-router.post("/upload", upload.single("img"), uploadController_1.uploadController);
+router.post("/upload", uploadMulter_1.upload.single("image"), uploadController_1.uploadController);
+router.get("/image/:id", getImageController_1.getImageController);
 exports.default = router;

@@ -16,10 +16,7 @@ app.use("/", exifRoutes_1.default);
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = "mongodb://localhost:27017/filterpixel";
 mongoose_1.default
-    .connect(MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+    .connect(MONGO_URL)
     .then(() => {
     console.log("DB Connection Sucessful");
 })
