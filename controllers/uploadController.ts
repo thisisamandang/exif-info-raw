@@ -5,6 +5,11 @@ import ImageModel from "../model/imageModel";
 export const uploadController = async (req: any, res: any) => {
   console.log(req.file, req.body);
 
+  await exiftool.extractPreview(
+    req.file.path,
+    `./assets/${req.file.filename}.jpg`
+  );
+
   const tags = await exiftool.read(req.file.path);
   const ImageData: {
     exifInfo: ExifInfo;
@@ -28,6 +33,7 @@ export const uploadController = async (req: any, res: any) => {
       previewPath: `./assets/${req.file.filename}.jpg`,
     },
   };
+  // console.log(ImageData);
   try {
     const newImage = await ImageModel.create(ImageData);
     console.log("Data saved to database:", newImage);
